@@ -2,6 +2,7 @@ package com.springboot.demo.bean;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
+import org.springframework.validation.annotation.Validated;
 
 import java.util.Date;
 import java.util.List;
