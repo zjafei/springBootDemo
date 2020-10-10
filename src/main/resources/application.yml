@@ -18,3 +18,9 @@ spring:
   profiles: m3
 server:
   port: 8083
+
+# 还可以使用命令行
+# java -jar target/demo-0.0.1-SNAPSHOT.jar --spring.profiles.active=dev
+
+# 虚拟机参数
+# -Dspring.profiles.active=dev
