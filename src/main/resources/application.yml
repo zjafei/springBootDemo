@@ -1,3 +1,20 @@
 spring:
   profiles:
-    active: pro
+    active: m1
+
+# 文档块
+---
+spring:
+  profiles: m1
+server:
+  port: 8081
+---
+spring:
+  profiles: m2
+server:
+  port: 8082
+---
+spring:
+  profiles: m3
+server:
+  port: 8083
