@@ -30,3 +30,5 @@ server:
 # /
 # classpath:/config/
 # classpath:/   classpath就是resources文件夹idea默认的位置
+
+# 通过命令行参数spring.config.location改变默认的配置文件位置
