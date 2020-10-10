@@ -24,3 +24,9 @@ server:
 
 # 虚拟机参数
 # -Dspring.profiles.active=dev
+
+# spring boot 配置文件的加载位置和优先级顺序 由高到低
+# /config/
+# /
+# classpath:/config/
+# classpath:/   classpath就是resources文件夹idea默认的位置
