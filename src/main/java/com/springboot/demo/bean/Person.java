@@ -1,8 +1,10 @@
 package com.springboot.demo.bean;
 
+//import org.hibernate.validator.constraints.Email;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.annotation.Validated;
+
 
 import java.util.Date;
 import java.util.List;
@@ -10,7 +12,9 @@ import java.util.Map;
 
 @Component
 @ConfigurationProperties(prefix = "person")
+@Validated
 public class Person {
+//    @Email
     private String lastName;
     private Integer age;
     private Boolean boss;

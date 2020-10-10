@@ -3,7 +3,7 @@ server:
 
 person:
   last-name: 马
-  age: 25
+  age: ${random.int[18,25]}
   boss: false
   birth: 1980/11/02
   maps: {k1: v1, k2: v2}
@@ -11,5 +11,5 @@ person:
     - lisa
     - mary
   dog:
-    name: 小狗
-    age: 3
+    name: ${person.last-name}的小狗
+    age: ${random.int[2,5]}
