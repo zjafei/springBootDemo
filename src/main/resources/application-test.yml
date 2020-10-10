@@ -1,0 +1,15 @@
+server:
+  port: 8080
+
+person:
+  last-name: 马
+  age: ${random.int[18,25]}
+  boss: false
+  birth: 1980/11/02
+  maps: {k1: v1, k2: v2}
+  lists:
+    - lisa
+    - mary
+  dog:
+    name: ${person.last-name}的小狗
+    age: ${random.int[2,5]}
