@@ -11,5 +11,5 @@ person:
     - lisa
     - mary
   dog:
-    name: ${person.last-name}的小狗
+    name: ${person.full-name:马正}的小狗
     age: ${random.int[2,5]}
