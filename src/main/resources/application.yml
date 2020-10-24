@@ -1,6 +1,13 @@
 server:
   port: 8090
 
+logging:
+  level:
+    com.springboot.demo: trace
+  file:
+    path: D:/springbootDemo
+    name: logger.txt
+
 person:
   last-name: 马
   age: ${random.int[18,25]}
@@ -13,3 +20,5 @@ person:
   dog:
     name: ${person.full-name:马正}的小狗
     age: ${random.int[2,5]}
+
+
