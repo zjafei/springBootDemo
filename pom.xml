@@ -36,6 +36,20 @@
             </exclusions>
         </dependency>
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+        <!-- 静态资源访问 -->
+            <!-- 1. webjars-->
+                <!-- classpath:/META-INF/resources/webjars/jquery/3.5.1/xxx-->
+                <!-- /resources/webjars/jquery/3.5.1/xxx-->
+            <!-- 2. 默认的文件夹目录-->
+                <!-- classpath:/META-INF/resources-->
+                <!-- classpath:/resources-->
+                <!-- classpath:/static-->
+                <!-- classpath:/public-->
+                <!-- 当前项目的根路径-->
+        <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>jquery</artifactId>
             <version>3.5.1</version>
