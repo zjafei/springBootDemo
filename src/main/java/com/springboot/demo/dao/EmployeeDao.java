@@ -1,17 +1,16 @@
 package com.springboot.demo.dao;
 
 import com.springboot.demo.entities.Department;
-
 import com.springboot.demo.entities.Employee;
-import org.springframework.beans.factory.annotation.Autowired;
+// import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class EmployeeDao {
     private static Map<Integer, Employee> employees = null;
-    @Autowired
-    private DepartmentDao departmentDao;
+    // @Autowired
+    // private DepartmentDao departmentDao;
 
     static{
         employees = new HashMap<Integer, Employee>();
@@ -23,7 +22,7 @@ public class EmployeeDao {
         employees.put(1005, new Employee(1005, "E-EE", "ee@163.com", 1, new Department(105, "D-EE")));
     }
 
-    private static Integer initId = 1006;
+    // private static Integer initId = 1006;
 
 
 }

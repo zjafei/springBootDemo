@@ -16,7 +16,7 @@
 		<form class="form-signin" action="dashboard.html">
 			<img class="mb-4" th:src="@{/asserts/img/bootstrap-solid.svg}" alt="" width="72" height="72">
 			<h1 class="h3 mb-3 font-weight-normal" th:text="#{login.tip}">Please sign in</h1>
-			<label class="sr-only" th:text="#{login.username}">Username</label>
+			<label class="sr-only" th:text="#{login.username}"></label>
 			<input type="text" class="form-control" th:placeholder="#{login.username}" required="" autofocus="">
 			<label class="sr-only"  th:text="#{login.password}">Password</label>
 			<input type="password" class="form-control" th:placeholder="#{login.password}" required="">
