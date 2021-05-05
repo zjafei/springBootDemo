@@ -8,6 +8,6 @@ public class HelloWorldController {
   
   @RequestMapping("/hello")
   public String handle01(){
-    return "hello spring boot 2";
+    return "Hello spring boot 2";
   }
 }
