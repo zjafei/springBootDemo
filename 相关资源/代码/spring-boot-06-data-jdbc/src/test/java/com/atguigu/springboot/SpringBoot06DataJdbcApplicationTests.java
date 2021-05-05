@@ -21,9 +21,11 @@ public class SpringBoot06DataJdbcApplicationTests {
 	@Test
 	public void contextLoads() throws SQLException {
 		//org.apache.tomcat.jdbc.pool.DataSource
+		System.out.println("-------- data Source Class -----------");
 		System.out.println(dataSource.getClass());
 
 		Connection connection = dataSource.getConnection();
+    System.out.println("-------- data Source connection -----------");
 		System.out.println(connection);
 		connection.close();
 
