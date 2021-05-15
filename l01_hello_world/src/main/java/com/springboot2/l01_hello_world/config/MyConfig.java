@@ -1,17 +1,9 @@
 package com.springboot2.l01_hello_world.config;
 
-import ch.qos.logback.core.db.DBHelper;
-import com.springboot2.l01_hello_world.bean.Car;
 import com.springboot2.l01_hello_world.bean.Pet;
 import com.springboot2.l01_hello_world.bean.User;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
-import org.springframework.context.annotation.ImportResource;
-import org.springframework.web.filter.CharacterEncodingFilter;
 
 
 /**

@@ -1,13 +1,10 @@
 package com.springboot2.l01_hello_world;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.SpringBootConfiguration;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.web.servlet.WebMvcProperties;
 import org.springframework.cache.interceptor.CacheAspectSupport;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 public class L01HelloWorldApplication {
@@ -84,10 +81,10 @@ public class L01HelloWorldApplication {
     boolean tom22 = run.containsBean("tom22");
     System.out.println("容器中tom22组件：" + tom22);
 
-    boolean haha = run.containsBean("haha");
-    boolean hehe = run.containsBean("hehe");
-    System.out.println("haha：" + haha);
-    System.out.println("hehe：" + hehe);
+    boolean haHa = run.containsBean("ha ha");
+    boolean heHe = run.containsBean("he he");
+    System.out.println("ha ha：" + haHa);
+    System.out.println("he he：" + heHe);
   }
 
 }
