@@ -1,7 +1,7 @@
 # spring:
   # mvc:
-    # 静态资源url前缀
-    # static-path-pattern: /res/**
+  #   # 静态资源url前缀
+  #   static-path-pattern: /res/**
   # resources:
-    # 自定义静态资源文件夹
-    # static-locations: [classpath:/haha/]
+  #   # 自定义静态资源文件夹
+  #   static-locations: [classpath:/haha/]
