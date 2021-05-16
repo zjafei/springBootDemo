@@ -1,0 +1,26 @@
+person: 
+  userName: eric
+  boss: true
+  birth: 1980/11/02
+  age: 41
+  pet: 
+    name: max
+    weight: 50.1
+  # interests: [篮球, 游戏]
+  interests: 
+    - 篮球
+    - 游戏
+  animal: [猫, 狗]
+  # score: {english: 80, maths: 90}
+  score: 
+    english: 80
+    maths: 90
+  salaryList: [9999.98, 8888.88]
+  allPets: 
+    sick: 
+      - {name: bob, weight: 99}
+      - name: sam
+        weight: 40
+      - name: mick
+        weight: 50
+    health: [{name: tom, weight: 99},{name: jam, weight: 99}]
