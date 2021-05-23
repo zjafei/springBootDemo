@@ -6,4 +6,7 @@ spring:
   # static-path-pattern: /res/**  # 静态资源url前缀
   # resources: 
   #   static-locations: [classpath:/haha/] # 自定义静态资源文件夹
+server:
+  servlet:
+    context-path: /test # 项目的根路径
   
