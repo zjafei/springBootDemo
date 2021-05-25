@@ -22,7 +22,7 @@ public class Index {
     User user,
     HttpSession session
   ) {
-    if(StringUtils.isEmpty(user.getUsername())){ // TODO isEmpty 不给用了 
+    if(StringUtils.hasText(user.getUsername())){ // TODO isEmpty 不给用了 
       
     }
     return "redirect:/main"; // redirect 重新定向到 main 对比直接提交数据到 main 页面可以避免页面刷新重复 post 提交数据
