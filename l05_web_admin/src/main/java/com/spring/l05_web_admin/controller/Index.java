@@ -43,6 +43,7 @@ public class Index {
   public String mainPage(RedirectAttributes redirectAttr, HttpSession session, Model model) {
     if (session.getAttribute("loginUser") != null) {
       model.addAttribute("loginUser", session.getAttribute("loginUser"));
+      model.addAttribute("activePage", "main");
       return "main";
     } else {
       redirectAttr.addFlashAttribute("message", "请先登录!");
