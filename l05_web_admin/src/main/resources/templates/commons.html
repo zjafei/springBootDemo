@@ -202,7 +202,7 @@
       <li>
         <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
           <img th:src="@{/images/photos/user-avatar.png}" alt="" />
-          [[${loginUser.username}]]
+          [[${session.loginUser.username}]]
           <span class="caret"></span>
         </a>
         <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
@@ -234,7 +234,7 @@
       <div class="media logged-user">
         <img alt="" th:src="@{/images/photos/user-avatar.png}" class="media-object">
         <div class="media-body">
-          <h4><a href="#" th:text="${loginUser.username}"></a></h4>
+          <h4><a href="#" th:text="${session.loginUser.username}"></a></h4>
           <span>"Hello There..."</span>
         </div>
       </div>
