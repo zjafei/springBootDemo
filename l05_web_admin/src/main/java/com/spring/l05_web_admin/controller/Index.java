@@ -48,7 +48,8 @@ public class Index {
   }
 
   @GetMapping(value = { "/", "/main" })
-  public String mainPage(RedirectAttributes redirectAttr) {
+  public String mainPage(RedirectAttributes redirectAttr, Model model) {
+    model.addAttribute("activePage", "main");
     return "main";
   }
 

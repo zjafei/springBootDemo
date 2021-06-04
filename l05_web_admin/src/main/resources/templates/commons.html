@@ -264,6 +264,14 @@
               th:href="@{/editable_table}"> Edit Table</a></li>
         </ul>
       </li>
+
+      <li class="menu-list nav-active" th:class="${activePage == 'form_basic' ? 'menu-list nav-active':'menu-list'}">
+        <a href="#"><i class="fa fa-tasks"></i> <span>Forms</span></a>
+        <ul class="sub-menu-list">
+          <li th:class="${activePage == 'form_basic' ? 'active':''}"><a th:href="@{/form_basic}" href="
+              form_basic.html"> Form Basic</a></li>
+        </ul>
+      </li>
     </ul>
 
   </div>
