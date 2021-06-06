@@ -8,7 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-// import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
@@ -21,6 +20,12 @@ public class Form {
   @GetMapping(value = { "/form_basic" })
   public String formLayouts(Model model) {
     model.addAttribute("activePage", "form_basic");
+    return "form/form_basic";
+  }
+
+  @GetMapping(value = { "/test_500" })
+  public String formLayouts() {
+    int i = 10/0;
     return "form/form_basic";
   }
 
@@ -42,6 +47,7 @@ public class Form {
     Util.createUploadFile(headImg);
     if (photos.length > 0) {
       for (MultipartFile photo : photos) {
+        System.out.println("------ photo -------" + photo.getBytes());
         Util.createUploadFile(photo);
       }
     }

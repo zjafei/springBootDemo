@@ -4,6 +4,7 @@ package com.spring.l05_web_admin.controller;
 import javax.servlet.http.HttpSession;
 
 import com.spring.l05_web_admin.model.User;
+// import com.spring.l05_web_admin.model.Util;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +22,7 @@ public class Index {
       // HttpServletRequest request,
       Model model, HttpSession session) {
     // request.getAttribute("message");
+
     model.addAttribute("message", session.getAttribute("message"));
     session.removeAttribute("message");
     return "login";

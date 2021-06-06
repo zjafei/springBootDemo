@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="ThemeBucket">
+
+  <title>[[${status}]] Page</title>
+
+  <th:block th:replace="commons::commonHead" />
+</head>
+
+<body class="error-page">
+
+  <section>
+    <div class="container ">
+
+      <section class="error-wrapper text-center">
+        <h1><img alt="" th:src="@{/images/500-error.png}"></h1>
+        <h2>[[${status}]] [[${error}]]!!!</h2>
+        <h3>[[${message}]]</h3>
+        <p class="nrml-txt">[[${exception}]]</p>
+        <!-- [[${trace}]] -->
+        <!-- [[${trace}]] -->
+          <a class="back-btn" th:href="@{/}"> Back To Home</a>
+      </section>
+
+    </div>
+  </section>
+
+  <!-- Placed js at the end of the document so the pages load faster -->
+  <th:block th:replace="commons::commonErrorPageScript" />
+
+</body>
+
+</html>

@@ -26,8 +26,7 @@ public class Table {
 
   @GetMapping(value = { "/editable_table" })
   public String editableTablePage(Model model) {
-    List<User> users = Arrays.asList(new User("eric", "123456", "管理员"), new User("bob", "123456", "管理员"),
-        new User("lisa", "123456", "管理员"), new User("tom", "123456", "管理员"), new User("jack", "123456", "管理员"),
+    List<User> users = Arrays.asList(new User("eric", "123456", "管理员"), new User("bob", "123456", "管理员"),new User("lisa", "123456", "管理员"), new User("tom", "123456", "管理员"), new User("jack", "123456", "管理员"),
         new User("jam", "123456", "管理员"), new User("jinx", "123456", "管理员"), new User("tomas", "123456", "管理员"),
         new User("helen", "123456", "管理员"), new User("huck", "123456", "管理员"), new User("giant", "123456", "管理员"),
         new User("mick", "123456", "管理员"));
