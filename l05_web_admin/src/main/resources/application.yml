@@ -1,0 +1,50 @@
+#spring.mvc.static-path-pattern=/static/**
+
+
+#server.error.path=/error
+spring:
+    servlet:
+        multipart:
+            max-file-size: 10MB
+            max-request-size: 100MB
+# spring.web.resources.static-locations=file:static/,classpath:/static,classpath:/public,classpath:/resources,classpath:/META-INF/resource
+#server.servlet.session.timeout=60m
+#server.undertow.accesslog.dir=/tmp
+#spring.mvc.servlet.path=/mvc/
+
+    jdbc:
+        template:
+            query-timeout: 3
+    datasource:
+        url: jdbc:mysql://localhost:3306/mysql?useSSL=false
+        username: root
+        password: admin
+        driver-class-name: com.mysql.jdbc.Driver
+
+        druid:
+            filters: wall,stat
+            aop-patterns: com.spring.l05_web_admin.*
+            stat-view-servlet:
+                enabled: true
+                login-username: admin
+                login-password: 111111 
+                reset-enable: false
+
+            web-stat-filter:
+                enabled: true
+                url-pattern: /*
+                exclusions: /druid/*,/css/*,/fonts/*,/images/*,/js/*,/favicon.ico
+
+            filter: 
+                stat:
+                    slow-sql-millis: 100
+                    log-slow-sql: true
+                    enabled: true
+                wall:
+                    enabled: true
+                    config:
+                        drop-table-allow: false
+            
+
+
+            # spring.datasource.type=com.zaxxer.hikari.HikariDataSource

@@ -13,13 +13,13 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+// import org.springframework.context.annotation.Configuration;
 
-@Configuration
+// @Configuration
 public class MyDataSourceConfig {
 
-    @ConfigurationProperties("spring.datasource")
-    @Bean
+    // @ConfigurationProperties("spring.datasource")
+    // @Bean
     public DataSource dataSource() throws SQLException {
 
         DruidDataSource druidDataSource = new DruidDataSource();
@@ -30,7 +30,7 @@ public class MyDataSourceConfig {
         return druidDataSource;
     }
 
-    @Bean
+    // @Bean
     public ServletRegistrationBean<StatViewServlet> statViewServlet() {
         StatViewServlet statViewServlet = new StatViewServlet();
         ServletRegistrationBean<StatViewServlet> registrationBean = new ServletRegistrationBean<StatViewServlet>(
@@ -40,7 +40,7 @@ public class MyDataSourceConfig {
         return registrationBean;
     }
 
-    @Bean
+    // @Bean
     public FilterRegistrationBean<WebStatFilter> webStatFilter() {
 
         WebStatFilter webStatFilter = new WebStatFilter();
