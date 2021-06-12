@@ -6,16 +6,30 @@ import javax.servlet.http.HttpSession;
 import com.spring.l05_web_admin.model.User;
 // import com.spring.l05_web_admin.model.Util;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 // import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class Index {
+
+  @Autowired
+  JdbcTemplate jdbcTemplate;
+
+  @ResponseBody
+  @GetMapping("/query")
+  public String query() {
+    Long aLong = jdbcTemplate.queryForObject("select count(*) from innodb_index_stats", Long.class);
+    return aLong.toString();
+  }
+
   @GetMapping(value = { "/login" })
   public String loginPage(
       // @ModelAttribute("message") String message,
