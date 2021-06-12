@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring.l05_web_admin.mapper.HelpTopicMapper">
+  <!-- public HelpTopic getHelpTopic(Long helpTopicId);  -->
+  <select id="getHelpTopic" resultType="com.spring.l05_web_admin.model.HelpTopic">
+    select * from help_topic where help_topic_id=#{helpTopicId}
+  </select>
+</mapper>

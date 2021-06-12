@@ -1,20 +1,22 @@
-#spring.mvc.static-path-pattern=/static/**
-
-
-#server.error.path=/error
+# spring.mvc.static-path-pattern=/static/**
+# server.error.path=/error
+# spring.web.resources.static-locations=file:static/,classpath:/static,classpath:/public,classpath:/resources,classpath:/META-INF/resource
+# server.servlet.session.timeout=60m
+# server.undertow.accesslog.dir=/tmp
+# spring.mvc.servlet.path=/mvc/
+# spring.datasource.type=com.zaxxer.hikari.HikariDataSource
 spring:
     servlet:
         multipart:
             max-file-size: 10MB
             max-request-size: 100MB
-# spring.web.resources.static-locations=file:static/,classpath:/static,classpath:/public,classpath:/resources,classpath:/META-INF/resource
-#server.servlet.session.timeout=60m
-#server.undertow.accesslog.dir=/tmp
-#spring.mvc.servlet.path=/mvc/
+
 
     jdbc:
         template:
             query-timeout: 3
+
+
     datasource:
         url: jdbc:mysql://localhost:3306/mysql?useSSL=false
         username: root
@@ -44,7 +46,10 @@ spring:
                     enabled: true
                     config:
                         drop-table-allow: false
-            
 
 
-            # spring.datasource.type=com.zaxxer.hikari.HikariDataSource
+myBatis:
+    # config-location: classpath:myBatis/config.xml
+    mapper-locations: classpath:myBatis/mapper/*.xml
+    configuration:
+        mapUnderscoreToCamelCase: true
