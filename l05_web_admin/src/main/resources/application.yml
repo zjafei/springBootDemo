@@ -5,6 +5,7 @@
 # server.undertow.accesslog.dir=/tmp
 # spring.mvc.servlet.path=/mvc/
 # spring.datasource.type=com.zaxxer.hikari.HikariDataSource
+
 spring:
     servlet:
         multipart:
@@ -18,7 +19,7 @@ spring:
 
 
     datasource:
-        url: jdbc:mysql://localhost:3306/jdbc?useSSL=false
+        url: jdbc:mysql://localhost:3306/jdbc?useSSL=false&useUnicode=true&characterEncoding=utf-8
         username: root
         password: admin
         driver-class-name: com.mysql.jdbc.Driver
@@ -48,8 +49,8 @@ spring:
                         drop-table-allow: false
 
 
-myBatis:
-    # config-location: classpath:myBatis/config.xml
-    mapper-locations: classpath:myBatis/mapper/*.xml
-    configuration:
-        mapUnderscoreToCamelCase: true
+# myBatis:
+#     # config-location: classpath:myBatis/config.xml
+#     mapper-locations: classpath:myBatis/mapper/*.xml
+#     configuration:
+#         mapUnderscoreToCamelCase: true

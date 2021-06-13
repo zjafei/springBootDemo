@@ -3,8 +3,11 @@ package com.spring.l05_web_admin.controller;
 // import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import com.spring.l05_web_admin.mapper.CityMapper;
+import com.spring.l05_web_admin.model.City;
 import com.spring.l05_web_admin.model.HelpTopic;
 import com.spring.l05_web_admin.model.User;
+import com.spring.l05_web_admin.service.CityService;
 // import com.spring.l05_web_admin.model.Util;
 import com.spring.l05_web_admin.service.HelpTopicService;
 
@@ -40,6 +43,22 @@ public class Index {
   @GetMapping("/help_top")
   public HelpTopic getByHelpTopicId(@RequestParam("id") Long id) {
     return helpTopicService.getHelpTopic(id);
+  }
+
+  @Autowired
+  CityService cityService;
+
+  @ResponseBody
+  @GetMapping("/city")
+  public City getCityById(@RequestParam("id") Long id) {
+    return cityService.getById(id);
+  }
+
+  @ResponseBody
+  @PostMapping("/city")
+  public City insertCity(City city) {
+    cityService.insert(city);
+    return city;
   }
 
   @GetMapping(value = { "/login" })
