@@ -13,7 +13,7 @@ public class User {
      * 获取用户列表
      */
     @GetMapping(value = { "/{pageNo}" })
-    public String getList(@PathVariable("id") Integer id) {
+    public String getList(@PathVariable("pageNo") Integer pageNo) {
         return "table/dynamic_table";
     }
 }
