@@ -16,13 +16,14 @@ public class User {
     this.password = password;
     this.auth = auth;
   }
-
-  @TableField(exist = false)
-  private String username;
-
+  
+  /**
+   * 所有不在数据库中的字段用 TableField exist 标注
+   */
   @TableField(exist = false)
   private String password;
-
+  @TableField(exist = false)
+  private String username;
   @TableField(exist = false)
   private String auth;
 
