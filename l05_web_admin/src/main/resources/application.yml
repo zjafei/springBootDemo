@@ -49,8 +49,8 @@ spring:
                         drop-table-allow: false
 
 
-# myBatis:
-#     # config-location: classpath:myBatis/config.xml
-#     mapper-locations: classpath:myBatis/mapper/*.xml
-#     configuration:
-#         mapUnderscoreToCamelCase: true
+myBatis:
+    # config-location: classpath:myBatis/config.xml
+    mapper-locations: classpath:myBatis/mapper/*.xml
+    configuration:
+        mapUnderscoreToCamelCase: true
