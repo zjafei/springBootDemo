@@ -1,6 +1,5 @@
 package com.spring.l05_web_admin.model;
 
-import com.alibaba.druid.sql.dialect.oracle.ast.clause.OracleStorageClause.FlashCacheType;
 import com.baomidou.mybatisplus.annotation.TableField;
 
 import lombok.AllArgsConstructor;
