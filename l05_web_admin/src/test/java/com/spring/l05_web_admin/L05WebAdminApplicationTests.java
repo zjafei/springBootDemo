@@ -11,7 +11,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.JdbcTemplate;
-
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -20,7 +19,7 @@ class L05WebAdminApplicationTests {
 
 	@Autowired
 	JdbcTemplate jdbcTemplate;
-	
+
 	@Autowired
 	DataSource dataSource;
 
@@ -32,16 +31,14 @@ class L05WebAdminApplicationTests {
 		// jdbcTemplate.queryForObject("select * from user", rowMapper);
 		// jdbcTemplate.queryForList("select * from user");
 		Long aLong = jdbcTemplate.queryForObject("select count(*) from innodb_index_stats", Long.class);
-        log.info("记录总数：{}", aLong);
+		log.info("记录总数：{}", aLong);
 		log.info("数据源类型:{}", dataSource.getClass());
 	}
 
 	@Test
-	void testUserMapper(){
-		List<User> list = 	userMapper.selectList(null);
-		for (User user : list) {
-			log.info("用户姓名：{}", user);
-		}
+	void testUserMapper() {
+		List<User> list = userMapper.selectList(null);
+		list.forEach(System.out::println);
 	}
 
 }
