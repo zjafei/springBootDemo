@@ -7,7 +7,6 @@ import com.spring.l05_web_admin.model.City;
 import com.spring.l05_web_admin.model.HelpTopic;
 import com.spring.l05_web_admin.model.User;
 import com.spring.l05_web_admin.service.CityService;
-// import com.spring.l05_web_admin.model.Util;
 import com.spring.l05_web_admin.service.HelpTopicService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +27,12 @@ public class Index {
   @Autowired
   JdbcTemplate jdbcTemplate;
 
+  @Autowired
+  HelpTopicService helpTopicService;
+
+  @Autowired
+  CityService cityService;
+
   @ResponseBody
   @GetMapping("/query")
   public String query() {
@@ -35,17 +40,11 @@ public class Index {
     return aLong.toString();
   }
 
-  @Autowired
-  HelpTopicService helpTopicService;
-
   @ResponseBody
   @GetMapping("/help_top")
   public HelpTopic getByHelpTopicId(@RequestParam("id") Long id) {
     return helpTopicService.getHelpTopic(id);
   }
-
-  @Autowired
-  CityService cityService;
 
   @ResponseBody
   @GetMapping("/city")
