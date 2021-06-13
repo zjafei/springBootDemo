@@ -3,7 +3,6 @@ package com.spring.l05_web_admin.controller;
 // import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import com.spring.l05_web_admin.mapper.CityMapper;
 import com.spring.l05_web_admin.model.City;
 import com.spring.l05_web_admin.model.HelpTopic;
 import com.spring.l05_web_admin.model.User;
