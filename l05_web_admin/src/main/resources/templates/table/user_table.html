@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="ThemeBucket" />
+
+    <title>基础表格</title>
+    <link
+      th:href="@{/js/advanced-datatable/css/demo_page.css}"
+      rel="stylesheet"
+    />
+    <link
+      th:href="@{/js/advanced-datatable/css/demo_table.css}"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" th:href="@{/js/data-tables/DT_bootstrap.css}" />
+    <th:block th:replace="commons::commonHead" />
+  </head>
+
+  <body class="sticky-header">
+    <section>
+      <!-- left side start-->
+      <th:block th:replace="commons::commonSideBar" />
+      <!-- left side end-->
+
+      <!-- main content start-->
+      <div class="main-content">
+        <!-- header section start-->
+        <th:block th:replace="commons::commonHeader" />
+        <!-- header section end-->
+
+        <!-- page heading start-->
+        <div class="page-heading">
+          <h3>Dynamic Table</h3>
+          <ul class="breadcrumb">
+            <li>
+              <a href="#">Dashboard</a>
+            </li>
+            <li>
+              <a href="#">Data Tables</a>
+            </li>
+            <li class="active">Dynamic Table</li>
+          </ul>
+        </div>
+        <!-- page heading end-->
+
+        <!--body wrapper start-->
+        <div class="wrapper">
+          <div class="row">
+            <div class="col-sm-12">
+              <section class="panel">
+                <header class="panel-heading">Dynamic Table</header>
+                <div class="alert alert-danger" role="alert" th:if="${message}" th:text="${message}"
+        style="margin-bottom: 0; padding: 8px 16px; border-radius: 0;"></div>
+                <div class="panel-body">
+                  <a class="btn btn-primary" th:href="@{/user/create}"
+                    >create</a
+                  >
+                  <div class="adv-table">
+                    <table
+                      class="display table table-bordered table-striped"
+                      id="dynamic-table"
+                    >
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>ID</th>
+                          <th>Name</th>
+                          <th>Age</th>
+                          <th>Email</th>
+                          <th>operation</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr class="gradeX" th:each="user, userStat : ${users}">
+                          <td th:text="${userStat.count}"></td>
+                          <td th:text="${user.id}"></td>
+                          <td th:text="${user.name}"></td>
+                          <td th:text="${user.age}"></td>
+                          <td th:text="${user.email}"></td>
+                          <td>
+                            <a
+                              class="btn btn-success btn-sm"
+                              th:href="@{/user/edit?id=}+${user.id}"
+                              >edit</a
+                            >
+                            <a
+                              class="btn btn-danger btn-sm"
+                              th:href="@{/user/delete?id=}+${user.id}"
+                              >delete</a
+                            >
+                          </td>
+                        </tr>
+                      </tbody>
+                      <tfoot>
+                        <tr>
+                          <th>#</th>
+                          <th>ID</th>
+                          <th>Name</th>
+                          <th>Age</th>
+                          <th>Email</th>
+                          <th>operation</th>
+                        </tr>
+                      </tfoot>
+                    </table>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+        <!--body wrapper end-->
+
+        <!--footer section start-->
+        <th:block th:replace="commons::commonFooter" />
+        <!--footer section end-->
+      </div>
+      <!-- main content end-->
+    </section>
+
+    <!-- Placed js at the end of the document so the pages load faster -->
+    <th:block th:replace="commons::commonScript" />
+    <!--dynamic table-->
+    <script
+      type="text/javascript"
+      language="javascript"
+      th:src="@{/js/advanced-datatable/js/jquery.dataTables.js}"
+    ></script>
+    <script
+      type="text/javascript"
+      th:src="@{/js/data-tables/DT_bootstrap.js}"
+    ></script>
+    <!--dynamic table initialization -->
+    <script th:src="@{/js/dynamic_table_init.js}"></script>
+  </body>
+</html>

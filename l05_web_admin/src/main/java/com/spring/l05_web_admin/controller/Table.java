@@ -4,13 +4,18 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.spring.l05_web_admin.model.User;
+import com.spring.l05_web_admin.service.UserService;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class Table {
+  @Autowired
+  UserService userService;
+
   @GetMapping(value = { "/basic_table" })
   public String basicTablePage(Model model) {
     model.addAttribute("activePage", "basic_table");
@@ -20,7 +25,6 @@ public class Table {
   @GetMapping(value = { "/dynamic_table" })
   public String dynamicTablePage(Model model) {
     model.addAttribute("activePage", "dynamic_table");
-
     return "table/dynamic_table";
   }
 
