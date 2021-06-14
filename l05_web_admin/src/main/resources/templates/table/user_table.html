@@ -20,6 +20,11 @@
     />
     <link rel="stylesheet" th:href="@{/js/data-tables/DT_bootstrap.css}" />
     <th:block th:replace="commons::commonHead" />
+    <style>
+      #dynamic-table_wrapper .row-fluid {
+        display: none;
+      }
+    </style>
   </head>
 
   <body class="sticky-header">
@@ -55,13 +60,56 @@
             <div class="col-sm-12">
               <section class="panel">
                 <header class="panel-heading">Dynamic Table</header>
-                <div class="alert alert-danger" role="alert" th:if="${message}" th:text="${message}"
-        style="margin-bottom: 0; padding: 8px 16px; border-radius: 0;"></div>
+                <div
+                  class="alert alert-danger"
+                  role="alert"
+                  th:if="${message}"
+                  th:text="${message}"
+                  style="margin-bottom: 0; padding: 8px 16px; border-radius: 0"
+                ></div>
                 <div class="panel-body">
                   <a class="btn btn-primary" th:href="@{/user/create}"
                     >create</a
                   >
                   <div class="adv-table">
+                    <div class="row-fluid">
+                      <div class="span6">
+                        <div class="dataTables_length">
+                          <label
+                            ><select
+                              class="form-control"
+                              size="1"
+                              name="dynamic-table_length"
+                              aria-controls="dynamic-table"
+                            >
+                              <option value="10" selected="selected">10</option>
+                              <option value="25">25</option>
+                              <option value="50">50</option>
+                              <option value="100">100</option>
+                            </select>
+                            records per page</label
+                          >
+                        </div>
+                      </div>
+                      <div class="span6">
+                        <div class="dataTables_filter">
+                          <form
+                            th:action="@{/user/list}"
+                            method="get"
+                          >
+                            <label
+                              >Search:
+                              <input
+                                type="text"
+                                class="form-control"
+                                name="keyword"
+                                aria-controls="dynamic-table"
+                                th:value="${keyword}"
+                            /></label>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
                     <table
                       class="display table table-bordered table-striped"
                       id="dynamic-table"
