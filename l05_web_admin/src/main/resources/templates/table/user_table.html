@@ -9,7 +9,7 @@
     <meta name="description" content="" />
     <meta name="author" content="ThemeBucket" />
 
-    <title>基础表格</title>
+    <title>用户列表</title>
     <link
       th:href="@{/js/advanced-datatable/css/demo_page.css}"
       rel="stylesheet"
@@ -21,9 +21,9 @@
     <link rel="stylesheet" th:href="@{/js/data-tables/DT_bootstrap.css}" />
     <th:block th:replace="commons::commonHead" />
     <style>
-      #dynamic-table_wrapper .row-fluid {
+      /* #dynamic-table_wrapper .row-fluid {
         display: none;
-      }
+      } */
     </style>
   </head>
 
@@ -59,7 +59,10 @@
           <div class="row">
             <div class="col-sm-12">
               <section class="panel">
-                <header class="panel-heading">Dynamic Table</header>
+                <header class="panel-heading">
+                  Dynamic Table
+                  <a class="btn btn-primary" th:href="@{/user/create}">新增</a>
+                </header>
                 <div
                   class="alert alert-danger"
                   role="alert"
@@ -68,15 +71,13 @@
                   style="margin-bottom: 0; padding: 8px 16px; border-radius: 0"
                 ></div>
                 <div class="panel-body">
-                  <a class="btn btn-primary" th:href="@{/user/create}"
-                    >create</a
-                  >
                   <div class="adv-table">
                     <div class="row-fluid">
                       <div class="span6">
                         <div class="dataTables_length">
                           <label
-                            ><select
+                            >每页显示
+                            <select
                               class="form-control"
                               size="1"
                               name="dynamic-table_length"
@@ -87,18 +88,15 @@
                               <option value="50">50</option>
                               <option value="100">100</option>
                             </select>
-                            records per page</label
+                            条数据</label
                           >
                         </div>
                       </div>
                       <div class="span6">
                         <div class="dataTables_filter">
-                          <form
-                            th:action="@{/user/list}"
-                            method="get"
-                          >
+                          <form th:action="@{/user/list}" method="get">
                             <label
-                              >Search:
+                              >搜索:
                               <input
                                 type="text"
                                 class="form-control"
@@ -118,14 +116,17 @@
                         <tr>
                           <th>#</th>
                           <th>ID</th>
-                          <th>Name</th>
-                          <th>Age</th>
-                          <th>Email</th>
-                          <th>operation</th>
+                          <th>姓名</th>
+                          <th>年龄</th>
+                          <th>电子邮件</th>
+                          <th>操作</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr class="gradeX" th:each="user, userStat : ${users}">
+                        <tr
+                          class="gradeX"
+                          th:each="user, userStat : ${users.records}"
+                        >
                           <td th:text="${userStat.count}"></td>
                           <td th:text="${user.id}"></td>
                           <td th:text="${user.name}"></td>
@@ -135,12 +136,12 @@
                             <a
                               class="btn btn-success btn-sm"
                               th:href="@{/user/edit?id=}+${user.id}"
-                              >edit</a
+                              >编辑</a
                             >
                             <a
                               class="btn btn-danger btn-sm"
                               th:href="@{/user/delete?id=}+${user.id}"
-                              >delete</a
+                              >删除</a
                             >
                           </td>
                         </tr>
@@ -149,13 +150,74 @@
                         <tr>
                           <th>#</th>
                           <th>ID</th>
-                          <th>Name</th>
-                          <th>Age</th>
-                          <th>Email</th>
-                          <th>operation</th>
+                          <th>姓名</th>
+                          <th>年龄</th>
+                          <th>电子邮件</th>
+                          <th>操作</th>
                         </tr>
                       </tfoot>
                     </table>
+                    <div class="row-fluid">
+                      <div class="span6">
+                        <div class="dataTables_info" id="dynamic-table_info">
+                          每页显示[[${users.size}]]数据 第[[${users.current}]]页 总计 [[${users.pages}]]页
+                          共[[${users.total}]]条数据
+                        </div>
+                      </div>
+                      <div class="span6">
+                        <div
+                          class="
+                            dataTables_paginate
+                            paging_bootstrap
+                            pagination
+                          "
+                        >
+                          <ul>
+                            <li
+                              th:class="${users.current ==1 ? 'prev disabled' : 'prev'}"
+                            >
+                              <a
+                                th:href="${users.current ==1}?'#':@{/user/list(keyword=${keyword},page=1)}"
+                                >首页</a
+                              >
+                            </li>
+                            <li
+                              th:class="${users.current ==1 ? 'prev disabled' : 'prev'}"
+                            >
+                              <a
+                                th:href="${users.current ==1}?'#':@{/user/list(keyword=${keyword},page=${users.current - 1})}"
+                                >← 上一页</a
+                              >
+                            </li>
+                            <li
+                              th:class="${num == users.current?'active':''}"
+                              th:each="num:${#numbers.sequence(1,users.pages)}"
+                            >
+                              <a
+                                th:href="@{/user/list(keyword=${keyword},page=${num})}"
+                                >[[${num}]]</a
+                              >
+                            </li>
+                            <li
+                              th:class="${users.current == users.pages ? 'next disabled' : 'next'}"
+                            >
+                              <a
+                                th:href="${users.current == users.pages}?'#':@{/user/list(keyword=${keyword},page=${users.current + 1})}"
+                                >下一页 →
+                              </a>
+                            </li>
+                            <li
+                              th:class="${users.current == users.pages ? 'next disabled' : 'next'}"
+                            >
+                              <a
+                                th:href="${users.current == users.pages}?'#':@{/user/list(keyword=${keyword},page=${users.pages})}"
+                                >末页
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </section>
@@ -184,6 +246,6 @@
       th:src="@{/js/data-tables/DT_bootstrap.js}"
     ></script>
     <!--dynamic table initialization -->
-    <script th:src="@{/js/dynamic_table_init.js}"></script>
+    <!-- <script th:src="@{/js/dynamic_table_init.js}"></script> -->
   </body>
 </html>

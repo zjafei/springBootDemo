@@ -4,6 +4,7 @@ import javax.servlet.http.HttpSession;
 
 import com.alibaba.druid.sql.dialect.oracle.ast.clause.OracleStorageClause.FlashCacheType;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.spring.l05_web_admin.model.User;
 
 // import java.util.List;
@@ -91,22 +92,23 @@ public class UserController {
      * 获取用户列表
      */
     @GetMapping(value = { "/list" })
-    public String getList(
-            @RequestParam(name = "keyword", required = false, defaultValue = "") String keyword,
-            Model model, HttpSession session) {
+    public String getList(@RequestParam(name = "page", required = false, defaultValue = "1") Integer page,
+            @RequestParam(name = "keyword", required = false, defaultValue = "") String keyword, Model model,
+            HttpSession session) {
         System.out.println(session.getAttribute("message"));
         model.addAttribute("message", session.getAttribute("message"));
         session.removeAttribute("message");
         model.addAttribute("activePage", "user");
         model.addAttribute("keyword", keyword);
+        QueryWrapper<User> keyworkQueryWrapper = null;
 
-        if(StringUtils.hasText(keyword)){
-            QueryWrapper<User> keyworkQueryWrapper = new QueryWrapper<>();
+        Page<User> pagination = new Page<User>(page, 5);
+        if (StringUtils.hasText(keyword)) {
+            keyworkQueryWrapper = new QueryWrapper<>();
             keyworkQueryWrapper.like("name", keyword);
-            model.addAttribute("users", userService.list(keyworkQueryWrapper));
-        }else{
-            model.addAttribute("users", userService.list());
         }
+        model.addAttribute("users", userService.page(pagination, keyworkQueryWrapper));
+        
         return "table/user_table";
     }
 }
