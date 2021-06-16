@@ -15,7 +15,6 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import io.lettuce.core.dynamic.RedisCommandFactory;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j

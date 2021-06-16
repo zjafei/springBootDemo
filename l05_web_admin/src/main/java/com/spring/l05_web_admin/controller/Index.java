@@ -76,7 +76,7 @@ public class Index {
       // RedirectAttributes redirectAttr,
       // HttpServletRequest request,
       User user, HttpSession session) {
-    if (StringUtils.hasText(user.getUsername()) && "111111".equals(user.getPassword())) { // TODO isEmpty 不给用了
+    if (StringUtils.hasText(user.getUsername()) && "111111".equals(user.getPassword())) { // isEmpty 不给用了
       session.setAttribute("loginUser", user); // 把登陆成功的用户保存起来
       return "redirect:/main"; // redirect 重新定向到 main 对比直接提交数据到 main 页面可以避免页面刷新重复 post 提交数据
     } else {

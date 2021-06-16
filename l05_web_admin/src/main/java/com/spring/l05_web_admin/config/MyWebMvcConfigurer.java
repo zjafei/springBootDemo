@@ -12,7 +12,6 @@ public class MyWebMvcConfigurer implements WebMvcConfigurer {
 
   @Override
   public void addInterceptors(InterceptorRegistry registry) {
-    // TODO Auto-generated method stub
     registry.addInterceptor(new Login()).addPathPatterns("/**") // 所有请求都被拦截包括静态资源
         .excludePathPatterns("/login", "/css/**", "/fonts/**", "/images/**", "/js/**", "/favicon.ico"); // 放行的请求
   }

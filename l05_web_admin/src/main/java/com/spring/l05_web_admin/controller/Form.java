@@ -25,7 +25,7 @@ public class Form {
 
   @GetMapping(value = { "/test_500" })
   public String formLayouts() {
-    int i = 10/0;
+    // int i = 10/0;
     return "form/form_basic";
   }
 

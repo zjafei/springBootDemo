@@ -2,7 +2,6 @@ package com.spring.l05_web_admin.config;
 
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

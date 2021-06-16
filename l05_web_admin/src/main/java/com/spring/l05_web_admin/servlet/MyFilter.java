@@ -19,21 +19,18 @@ public class MyFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
-        // TODO Auto-generated method stub
         log.info("filer destroy: 执行了");
         chain.doFilter(request, response);
     }
 
     @Override
     public void destroy() {
-        // TODO Auto-generated method stub
         // Filter.super.destroy();
         log.info("filer destroy: 销毁了");
     }
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        // TODO Auto-generated method stub
         // Filter.super.init(filterConfig);
         log.info("filer init: 初始化");
     }
