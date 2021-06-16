@@ -10,7 +10,12 @@ import com.spring.l05_web_admin.model.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.redis.connection.RedisConnectionFactory;
+import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.jdbc.core.JdbcTemplate;
+
+import io.lettuce.core.dynamic.RedisCommandFactory;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -25,6 +30,12 @@ class L05WebAdminApplicationTests {
 
 	@Autowired
 	UserMapper userMapper;
+
+	@Autowired
+	StringRedisTemplate redisTemplate;
+
+	@Autowired
+	RedisConnectionFactory redisConnectionFactory;
 
 	@Test
 	void contextLoads() {
@@ -41,4 +52,12 @@ class L05WebAdminApplicationTests {
 		list.forEach(System.out::println);
 	}
 
+
+	@Test
+	void testRedis() {
+		ValueOperations<String, String> operations = redisTemplate.opsForValue();
+		operations.set("hello","world");
+		System.out.println(operations.get("hello"));
+		System.out.println(redisConnectionFactory.getClass());
+	}
 }
