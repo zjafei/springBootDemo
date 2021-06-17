@@ -44,8 +44,9 @@ spring:
         port: 6379 #Redis服务器连接端口
         password: 
         timeout: 30000 #连接超时时间（毫秒）
-        # client-type: jedis # 使用 jedis
-        lettuce:
+        client-type: jedis # 使用 jedis
+        jedis:
+        # lettuce:
             pool:
                 max-active: 10
                 min-idle: 5
