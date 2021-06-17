@@ -10,6 +10,8 @@ import com.spring.l05_web_admin.service.CityService;
 import com.spring.l05_web_admin.service.HelpTopicService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,6 +28,9 @@ public class Index {
 
   @Autowired
   JdbcTemplate jdbcTemplate;
+
+  @Autowired
+  StringRedisTemplate stringRedisTemplate;
 
   @Autowired
   HelpTopicService helpTopicService;
@@ -94,7 +99,12 @@ public class Index {
 
   @GetMapping(value = { "/", "/main" })
   public String mainPage(RedirectAttributes redirectAttr, Model model) {
+    ValueOperations<String, String> opsForValue = stringRedisTemplate.opsForValue();
     model.addAttribute("activePage", "main");
+    model.addAttribute("mainPageCount", opsForValue.get("/main"));
+    model.addAttribute("loginPageCount", opsForValue.get("/login"));
+    model.addAttribute("errorPageCount", opsForValue.get("/error"));
+    model.addAttribute("userListPageCount", opsForValue.get("/user/list"));
     return "main";
   }
 
